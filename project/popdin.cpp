@@ -32,6 +32,14 @@ double* competitive(double x, double y){
     return np;
 }
 
+double* CapacityLV(double nr, double nf){
+    double np[2];
+    np[0] = a*(1-nr/K)*nr-b*nr*nf;
+    np[1] = c*nr*nf-d*nf;
+    return np;
+}
+
+
 double* eulerStep(double x, double tau, double y, function<double* (double,double)> f1){
     x = x+tau*f1(x, y)[0];
     y = y+tau*f1(x, y)[1];
