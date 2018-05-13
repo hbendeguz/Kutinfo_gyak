@@ -39,6 +39,12 @@ double* CapacityLV(double nr, double nf){
     return np;
 }
 
+double* RealisticLV(double nr, double nf){
+    double np[2];
+    np[0] = a*nr*(1-nr/K)-b*nr*nf/(1+nr/s);
+    np[1] = c*nr*nf/(1+nr/s)-d*nf;
+    return np;
+}
 
 double* eulerStep(double x, double tau, double y, function<double* (double,double)> f1){
     x = x+tau*f1(x, y)[0];
