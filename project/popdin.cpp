@@ -25,6 +25,13 @@ double* LotkaVolterra(double nr, double nf){
     return np;
 }
 
+double* competitive(double x, double y){
+    double np[2];
+    np[0] = r1*x*(1-(x+alpha*y)/k1);
+    np[1] = r2*y*(1-(y+beta*x)/k2);
+    return np;
+}
+
 double* eulerStep(double x, double tau, double y, function<double* (double,double)> f1){
     x = x+tau*f1(x, y)[0];
     y = y+tau*f1(x, y)[1];
